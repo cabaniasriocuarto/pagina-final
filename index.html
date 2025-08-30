@@ -215,18 +215,54 @@
       </div>
     </section>
 
-    <!-- Galería section with slider and lightbox -->
-    <section id="galeria" class="galeria">
-      <h2>Galería</h2>
-      <div class="slider">
-        <button class="prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-        <div class="slides">
-          <!-- Galería de imágenes real: se utilizarán las fotos subidas -->
-          <img src="images/1-plaza.jpg" alt="Dormitorio de una plaza" />
-          <img src="images/cabana-1-2.jpeg" alt="Dormitorios de la cabaña" />
-        </div>
-        <button class="next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-      </div>
+    /* Galería Section */
+.galeria {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  height: 400px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.slider button.prev,
+.slider button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+.slider button.prev:hover,
+.slider button.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.slider button.prev { left: 10px; }
+.slider button.next { right: 10px; }
       <!-- Lightbox overlay for enlarged images -->
       <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
         <span class="close" aria-label="Cerrar">&times;</span>
