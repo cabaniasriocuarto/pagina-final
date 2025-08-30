@@ -93,7 +93,7 @@ header nav .nav-links li.social a.instagram { color: #c13584; }
   align-items: center;
   /* Provide ample height so the text can sit at the bottom of the image */
   min-height: 70vh;
-  padding: 2rem;
+  padding: 0.5rem;
   background-image: url("images/portada.jpg");
   background-size: cover;
   background-position: center;
@@ -102,15 +102,29 @@ header nav .nav-links li.social a.instagram { color: #c13584; }
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #fdd835;
+  color: #FFC107;   /* color principal */
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,  
+    -1px  1px 0 #000,  
+     1px  1px 0 #000;  /* contorno negro */
 }
+
 .hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  /* Use a slightly lighter color for readability over the image */
-  color: #e0e0e0;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;       /* más grande */
+  max-width: 870px;
+  color: black;            /* texto negro */
+  margin-bottom: 1rem;
+  font-weight: bold;       /* negrita */
+  text-shadow: 
+    -1px -1px 0 white,     /* sombra arriba izquierda */
+     1px -1px 0 white,     /* sombra arriba derecha */
+    -1px  1px 0 white,     /* sombra abajo izquierda */
+     1px  1px 0 white;     /* sombra abajo derecha */
 }
+
+
+
 
 /* Tarifas Section */
 .tarifas {
@@ -261,69 +275,66 @@ header nav .nav-links li.social a.instagram { color: #c13584; }
   font-size: 1.2rem;
 }
 
-
-/* Galería */
-#galeria .galeria-container {
-  width: 100%;
+/* Galería Section */
+.galeria {
+  padding: 3rem 2rem;
+  max-width: 1000px;
   margin: 0 auto;
+}
+.slider {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 1024px) {
-  #galeria .galeria-container {
-    width: 60%;
-  }
-}
-
-.galeria-slider {
-  display: flex;
   overflow: hidden;
   width: 100%;
-  min-height: 300px;
-  position: relative;
-}
-
-.galeria-slider .slide {
-  flex: 0 0 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  height: 100%;
-}
-
-.galeria-slider .slide img,
-.galeria-slider .slide video {
-  max-width: 100%;
-  max-height: 400px;
+  margin: 0 auto;
   border-radius: 8px;
 }
-
-.galeria-prev,
-.galeria-next {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #f1b800;
-  border: none;
-  font-size: 2rem;
-  padding: 8px 12px;
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  height: 300px;
+  object-fit: cover;
   cursor: pointer;
+}
+.slides video {
+  width: 100%;
+  flex-shrink: 0;
+  height: 350px;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.slider button.prev,
+.slider button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   z-index: 10;
-  border-radius: 4px;
-  user-select: none;
 }
-
-.galeria-prev {
-  left: -30px;
+.slider button.prev:hover,
+.slider button.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
-
-.galeria-next {
-  right: -30px;
+.slider button.prev { left: 10px; }
+.slider button.next { right: 10px; }
+slider {
+  position: relative; /* necesario para posicionar los botones encima */
 }
 
 /* Lightbox overlay */
@@ -565,6 +576,11 @@ header nav .nav-links li.social a.instagram { color: #c13584; }
   }
   .slides img {
     height: 250px;
+  }
+  .contacto-container {
+    flex-direction: column;
+  }
+}
   }
   .contacto-container {
     flex-direction: column;
